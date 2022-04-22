@@ -1,0 +1,361 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.body {
+  background-color: #eee;
+  width: 100%;
+  color: black;
+}
+body.dark {
+  background-color: black;
+  color: #eee;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  font-size: 1rem;
+  margin-right: 3rem;
+  align-items: center;
+}
+
+.nav-aside {
+  display: flex;
+  align-items: center;
+}
+.nav-links {
+  display: flex;
+}
+.logo {
+  color: gold;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+.logo span {
+  color: green;
+  font-size: 1.3rem;
+}
+.call-to-action {
+  display: flex;
+  margin-right: 3rem;
+  align-items: center;
+}
+
+.theme {
+  border: 2px solid gold;
+  border-radius: 5px;
+  font-size: 1rem;
+  height: 40px;
+  padding: .2rem;
+  cursor: pointer;
+  color: inherit;
+  background: transparent;
+  margin-left: 2rem;
+}
+/* related to JS */
+.nav-toggler {
+  height: 34px;
+  width: 36px;
+  /* background-color: white; */
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  display: none;
+}
+.nav-toggler:focus {
+  outline: none;
+  
+}
+.nav-toggler span {
+  height: 2px;
+  width: 20px;
+  background-color: black;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+.nav-toggler.active span {
+  background-color: transparent;
+}
+.nav-toggler span::before,
+ .nav-toggler span::after {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: black;
+}
+.nav-toggler span::before {
+  transform: translateY(6px);
+}
+.nav-toggler.active span::before {
+  transform: rotate(45deg);
+}
+.nav-toggler span::after {
+    transform: translateY(-6px);
+}
+.nav-toggler.active span::after {
+  transform: rotate(135deg);
+}
+.header ul {
+  margin-right: 10rem;
+  display: flex;
+}
+
+.header ul li {
+  list-style: none;
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
+.active {
+  text-decoration: none;
+  color: inherit;
+}
+.btn {
+  font-size: 0.9rem;
+  background-color: transparent;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  color: inherit;
+  border: 2px solid gold;
+}
+.call-to-action .bi-cart-fill {
+  padding-left: .8rem;
+}
+.container {
+  margin: 5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.text-content {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 0;
+}
+.text-content p {
+  margin-bottom: 2rem;
+}
+.learn-more {
+  font-weight: 500;
+  margin-top: 6rem;
+  text-decoration: none;
+  color: white;
+  background-color: orangered;
+  padding: .8rem .6rem;
+  border-radius: 5px;
+}
+.learn-more .bi-arrow-right-short{
+  padding-top: 1rem;
+  transform: scale(1.5);
+}
+.food-images {
+  width: 40%;
+  margin-left: 10%;
+}
+
+img {
+  object-position: center;
+  object-fit: cover;
+  max-width: 100%;
+}
+.col {
+  color: black;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+}
+.steps-col {
+  padding: 2rem 0;
+  background-color: blueviolet;
+}
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.food-variety {
+  width: 150px;
+  height: 150px;
+}
+.col-1 {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.col-2 {
+  margin-bottom: 0.5rem;
+}
+.col-3 {
+  margin-right: 0.5rem;
+}
+
+/*bottom-area styling starts here */
+.top,
+.bottom {
+  margin-top: 3rem;
+}
+.title {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+.rows {
+  display: flex;
+  justify-content: space-evenly;
+}
+.col_1 {
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  width: 23%;
+}
+.col_1 > * {
+  margin-bottom: .5rem;
+}
+#col_1 {
+  background-color: white;
+  text-align: center;
+  padding: 2.5rem .8rem 1rem;
+  border-radius: 10px;
+  width: 23%;
+}
+
+.food-variety {
+  margin-top: 1rem;
+  border-radius: 50%;
+}
+.cart {
+  margin-bottom: 1.2rem;
+  text-decoration: none;
+  background-color: orangered;
+  color: white;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.food-gallery {
+  text-decoration: none;
+  background-color: white;
+  color: orangered;
+  padding: 0.3rem 1rem;
+  border: 1px solid orangered;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 1rem 0;
+}
+footer {
+  margin-top: 2rem;
+background-color: #fff;
+}
+
+.footer-link {
+  text-align: center;
+}
+
+/* media queries for mobile layout starts here */
+@media (max-width: 760px) {
+.header {
+  display: block;
+  overflow-x: hidden;
+}
+.nav-aside {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  /* width: 60%; */
+  height: 100vh;
+  backdrop-filter: blur(1.5rem);
+  transition: all 300ms ease;
+}
+.nav-aside.open {
+  transform: translateX(0);
+ width: 200px;
+}
+.nav-aside .nav-links {
+ display: block;
+ width: 100%;
+  margin-top: 5rem;
+}
+
+.nav-links li {
+  margin-bottom: .7rem;
+  line-height: 2.5;
+  display: block;
+}
+
+.btn {
+  margin-left: 1.6rem;
+  margin-top: .8rem;
+}
+  .nav-toggler {
+    display: block ;
+  }
+  .nav-left-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+   .call-to-action svg, 
+   .theme-switch {
+    display: none;
+  } 
+  html {
+    font-size: 18px;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .logo {
+    margin-left: 2rem;
+    font-size: 1.2rem;
+  }
+.secondary-column {
+  display: none;
+}
+  .food-images {
+    width: 100%;
+    margin: 3rem 0;
+    text-align: center;
+  }
+  .food-image {
+    width: 100%;
+    min-height: 250px;
+  }
+  .text-content {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+  .rows {
+    flex-direction: column;
+  }
+  .col {
+    width: 100%;
+    margin: 1rem auto;
+  }
+  #col_1 {
+    width: 70%;
+  }
+  .col_1 {
+    width: 70%;
+  }
+  
+  .title p {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .col-4 {
+    margin-top: 0.5rem;
+  }
+
+  .column {
+    text-align: center;
+    margin: 0 auto;
+
+  }
+  
+}
