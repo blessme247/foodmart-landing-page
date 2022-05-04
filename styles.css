@@ -3,12 +3,15 @@
   padding: 0;
   margin: 0;
 }
+a {
+  text-decoration: none;
+}
 .body {
   background-color: #eee;
   width: 100%;
   color: black;
 }
-body.dark {
+.body.dark {
   background-color: black;
   color: #eee;
 }
@@ -18,15 +21,20 @@ body.dark {
   justify-content: space-between;
   padding-top: 2rem;
   font-size: 1rem;
-  margin-right: 3rem;
   align-items: center;
+  background-color: inherit;
 }
-
-.nav-aside {
+.header.active {
+  background-color:rgb(56, 39, 26) ;
+}
+.nav-desktop {
   display: flex;
   align-items: center;
 }
-.nav-links {
+.nav-mobile {
+  display: none;
+}
+.nav-desktop .nav-links {
   display: flex;
 }
 .logo {
@@ -45,25 +53,50 @@ body.dark {
 }
 
 .theme {
-  border: 2px solid gold;
-  border-radius: 5px;
-  font-size: 1rem;
+  
+  font-size: .9rem;
   height: 40px;
   padding: .2rem;
   cursor: pointer;
-  color: inherit;
+  color: orangered;
   background: transparent;
-  margin-left: 2rem;
+  border: none;
+  transform: translateY(100%);
+}
+
+.header ul {
+  margin-right: 10rem;
+  display: flex;
+}
+
+.header ul li {
+  list-style: none;
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
+.active {
+  text-decoration: none;
+  color: inherit;
+}
+.btn {
+  font-size: 0.9rem;
+  background-color: transparent;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  color: inherit;
+  border: 2px solid gold;
 }
 /* related to JS */
 .nav-toggler {
   height: 34px;
   width: 36px;
-  /* background-color: white; */
   border-radius: 4px;
   cursor: pointer;
   border: none;
   display: none;
+  position: absolute;
+  right: 10px;
+  background-color: #eee;
 }
 .nav-toggler:focus {
   outline: none;
@@ -102,32 +135,16 @@ background-color: black;
 .nav-toggler.active span::after {
   transform: rotate(135deg);
 }
-.header ul {
-  margin-right: 10rem;
-  display: flex;
-}
-
-.header ul li {
-  list-style: none;
-  margin-left: 1.5rem;
-  cursor: pointer;
-}
-.active {
-  text-decoration: none;
-  color: inherit;
-}
-.btn {
-  font-size: 0.9rem;
-  background-color: transparent;
-  border-radius: 0.4rem;
-  padding: 0.3rem 0.7rem;
-  color: inherit;
-  border: 2px solid gold;
-}
 .call-to-action .bi-cart-fill {
   padding-left: .8rem;
 }
 .container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-wrapper {
   margin: 5rem 3rem;
   display: flex;
   justify-content: space-between;
@@ -135,7 +152,7 @@ background-color: black;
 .text-content {
   width: 50%;
   margin: 0 auto;
-  margin-top: 0;
+  margin-top: 1rem;
 }
 .text-content p {
   margin-bottom: 2rem;
@@ -155,7 +172,7 @@ background-color: black;
 }
 .food-images {
   width: 40%;
-  margin-left: 10%;
+  margin-left: 30%;
 }
 
 img {
@@ -208,7 +225,7 @@ img {
   background-color: white;
   text-align: center;
   border-radius: 10px;
-  width: 23%;
+  width: 22%;
 }
 .col_1 > * {
   margin-bottom: .5rem;
@@ -218,7 +235,7 @@ img {
   text-align: center;
   padding: 2.5rem .8rem 1rem;
   border-radius: 10px;
-  width: 23%;
+  width: 22%;
 }
 
 .food-variety {
@@ -240,42 +257,283 @@ img {
   text-decoration: none;
   background-color: white;
   color: orangered;
-  padding: 0.3rem 1rem;
+  padding-right: 0.7rem;
+  padding-left: .7rem;
+  padding-bottom: .3rem ;
+  padding-top: -4rem;
   border: 1px solid orangered;
   border-radius: 5px;
   display: inline-block;
   margin: 1rem 0;
 }
-footer {
+.testimony-section {
   margin-top: 2rem;
-background-color: #fff;
+background-color: inherit;
+padding-bottom: 2rem;
 }
 
-.footer-link {
+.food-gallery-link {
+  text-align: center;
+  display: none;
+}
+.food-gallery .bi-arrow-right-short{
+  padding-top: 1rem;
+  transform: scale(1.5);
+}
+.testimonials {
+  margin-top: 1.5rem;
+}
+.carousel-section {
+  width: 95%;
+  margin: 0 auto;
+  padding: 4rem 0;
+  position: relative;
+}
+.swiper {
+  background-color: rgb(56, 39, 26);
+}
+.swiper-slide {
+  margin: 0 auto;
+  background-color: rgb(56, 39, 26);
+  color: white;
+  padding: 1.5rem 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.swiper-slide .customer-name {
+  margin: 1.5rem 0;
   text-align: center;
 }
+.swiper-slide .testimony {
+  line-height: 1.5;
+  width: 75%;
+  text-align: center;
+  margin: 2rem auto;
+}
+.swiper-slide .ratings {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0 1.6rem 0;
+}
+.swiper-slide .ratings svg + svg {
+  margin-left: .5rem;
+}
+.swiper-slide img {
+  position: absolute; /*  relative to .swiper-slide */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center;
+ bottom: -.5rem ;
+ left: 30%;
+}
 
+
+.testimonial-main-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  color: inherit;
+}
+
+.contact-section {
+  background-color: #eee ;
+  background-image: url(images/breakfast.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 2rem;
+}
+.form-header {
+  text-align: center;
+  padding: 2rem 0;
+  color:black;
+}
+.form-header p {
+  font-weight: 600;
+  font-size: 18px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 45%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+.form-group {
+  width: 85%;
+}
+.form-group input {
+  width: 100%;
+  height: 40px;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 15px;
+  background-color: #eee;
+  border-color: #eee;
+}
+
+.form-group textarea {
+  width: 100%;
+  display: block;
+  resize: none;
+  height: 16.75rem;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 16px;
+  margin-top: 0.5rem;
+  background-color: #eee;
+  padding-top: 2rem;
+  border-color: #eee;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+}
+.form-group a {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  background-color: orangered;
+  color: white;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 5px;
+}
+.footer {
+  padding-bottom: 2rem;
+  background-color: inherit;
+}
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {
+  padding-top: 3rem;
+  width: 40%;
+}
+.footer-logo {
+  margin-left: 0;
+}
+.subscribe {
+  margin-top: 4.5rem;
+  color: orangered;
+}
+.subscribe p {
+  white-space: nowrap; 
+  /* this is used to prevent the text from breaking in the responsive mode */
+}
+.subscribe-form {
+  width: 40%;
+  display: flex;
+  padding-top: 0.4rem;
+  flex-direction: row;
+background-color: inherit;
+margin-left: 3.2rem;
+}
+/* (chrome, firefox, opera, safari 10.1+ firefox has
+ a default lower opacity for placeholder, so we set opacity to 1 ) */
+.subscribe-form ::placeholder { 
+  color: rgb(56, 39, 26);
+  opacity: 1;
+}
+/* IE 10 - 11 */
+.subscribe-form :-ms-input-placeholder {
+  color: rgb(56, 39, 26);
+}
+/* microsoft edge */
+.subscribe-form ::-ms-input-placeholder {
+  color: rgb(56, 39, 26);
+}
+.subscribe-input {
+  padding: .8rem;
+  color: rgb(56, 39, 26);
+}
+.subscribe-btn {
+  background-color: orangered;
+  padding: .9rem;
+  color: white;
+  border: none;
+  width: 100%;
+}
+.footer-left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rem;
+}
+.footer-links a:not(:last-child) {
+  line-height: 1.5rem;
+}
+.footer-links a {
+  color: orangered;
+}
+.footer-social {
+  color: orangered;
+  padding-bottom: 4rem;
+}
+.footer-social p {
+  margin-bottom: .5rem;
+}
+.footer-social a {
+  color: orangered;
+  padding-right: .5rem;
+}
+hr {
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+.copyright {
+  text-align: center;
+  color: orangered;
+}
 /* media queries for mobile layout starts here */
 @media (max-width: 760px) {
 .header {
   display: block;
   overflow-x: hidden;
 }
-.nav-aside {
+.theme {
+  transform: translateY(115%);
+}
+
+.nav-desktop {
   display: none;
+}
+.nav-mobile {
   position: fixed;
   right: 0;
   top: 0;
-  /* width: 60%; */
+  width: 0; 
   height: 100vh;
-  backdrop-filter: blur(1.5rem);
-  transition: all 300ms ease;
+  backdrop-filter: blur(3.5rem);
+  transform: translateX(7%);
+  transition: 650ms ease;
 }
-.nav-aside.open {
-  transform: translateX(0);
- width: 200px;
+.nav-mobile.open {
+  width: 250px;
+  transition: 650ms ease-in-out;
 }
-.nav-aside .nav-links {
+.nav-mobile .nav-links {
  display: block;
  width: 100%;
   margin-top: 5rem;
@@ -299,14 +557,15 @@ background-color: #fff;
     justify-content: space-between;
     align-items: center;
   }
-   .call-to-action svg, 
-   .theme-switch {
+   .call-to-action svg {
     display: none;
   } 
+  
+ 
   html {
     font-size: 18px;
   }
-  .container {
+  .hero-wrapper {
     flex-direction: column;
   }
   .logo {
@@ -316,19 +575,26 @@ background-color: #fff;
 .secondary-column {
   display: none;
 }
+.column .col-2 {
+  display: none;
+}
   .food-images {
     width: 100%;
     margin: 3rem 0;
     text-align: center;
   }
   .food-image {
-    width: 100%;
     min-height: 250px;
+    width: 250px;
+    border-radius: 50%;
   }
   .text-content {
-    margin: 0 auto;
     width: 100%;
     text-align: center;
+    margin-top: 0;
+  }
+  .text-content h1 {
+    font-size: 30px;
   }
   .rows {
     flex-direction: column;
@@ -343,7 +609,11 @@ background-color: #fff;
   .col_1 {
     width: 70%;
   }
-  
+  .bottom .title {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   .title p {
     text-align: center;
     margin: 0 auto;
@@ -357,5 +627,51 @@ background-color: #fff;
     margin: 0 auto;
 
   }
+  .swiper-slide img {
+    left: 2%;
+    width: 100px;
+    height: 100px;
+    bottom: 6%;
+  }
+  .footer-section {
+    flex-direction: column;
+  }
+  .subscribe {
+    margin-top: 0.5rem;
+  }
+  .footer-left {
+    width: 90%;
+  }
+  .footer-left .logo, .footer-left p {
+    text-align: center;
+  }
+  .subscribe-form {
+    width: 90%;
+    margin-left: 0;
+    margin: 0 auto;
+  }
+  .subscribe-input {
+    width: 100%;
+  }
   
+  .subscribe-btn {
+    width: 30% ;
+    text-align: center;
+  }
+  
+  .footer-right {
+    width: 70%;
+  }
+  
+
+  .footer-links {
+    margin-left: -1.8rem;
+    margin-bottom: .6rem;
+  }
 }
+@media (max-width:600px) {
+  form {
+    width: 80%;
+  }
+}
+
