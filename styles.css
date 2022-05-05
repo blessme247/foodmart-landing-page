@@ -522,12 +522,15 @@ hr {
 }
 /* media queries for mobile layout starts here */
 @media (max-width: 760px) {
+  html {
+    font-size: 18px;
+  }
 .header {
   display: block;
   overflow-x: hidden;
 }
 .theme {
-  transform: translateY(112%);
+  transform: translateY(108%);
 }
 
 .nav-desktop {
@@ -577,10 +580,6 @@ hr {
     display: none;
   } 
   
- 
-  html {
-    font-size: 18px;
-  }
   .hero-wrapper {
     flex-direction: column;
   }
