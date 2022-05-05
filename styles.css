@@ -527,7 +527,7 @@ hr {
   overflow-x: hidden;
 }
 .theme {
-  transform: translateY(115%);
+  transform: translateY(112%);
 }
 
 .nav-desktop {
@@ -644,7 +644,7 @@ hr {
 
   }
   .swiper-slide img {
-    left: 4%;
+    left: 6%;
     width: 90px;
     height: 90px;
     bottom: 8%;
