@@ -37,6 +37,9 @@ a {
 .nav-desktop .nav-links {
   display: flex;
 }
+ .nav-links li:hover {
+ opacity: 0.75;
+}
 .logo {
   color: gold;
   font-size: 1.2rem;
@@ -85,6 +88,10 @@ a {
   padding: 0.3rem 0.7rem;
   color: inherit;
   border: 2px solid gold;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: .75;
 }
 /* related to JS */
 .nav-toggler {
@@ -96,7 +103,7 @@ a {
   display: none;
   position: absolute;
   right: 10px;
-  background-color: #eee;
+  background-color: #fff;
 }
 .nav-toggler:focus {
   outline: none;
@@ -128,15 +135,18 @@ background-color: black;
 }
 .nav-toggler.active span::before {
   transform: rotate(45deg);
+  background-color: white;
 }
 .nav-toggler span::after {
     transform: translateY(-6px);
 }
 .nav-toggler.active span::after {
   transform: rotate(135deg);
+  background-color: white;
 }
 .call-to-action .bi-cart-fill {
   padding-left: .8rem;
+  cursor: pointer;
 }
 .container {
   width: 95%;
@@ -165,10 +175,14 @@ background-color: black;
   background-color: orangered;
   padding: .8rem .6rem;
   border-radius: 5px;
+  cursor: pointer;
 }
 .learn-more .bi-arrow-right-short{
   padding-top: 1rem;
   transform: scale(1.5);
+}
+.learn-more .bi-arrow-right-short.active {
+  display: none;
 }
 .food-images {
   width: 40%;
@@ -525,12 +539,12 @@ hr {
   top: 0;
   width: 0; 
   height: 100vh;
-  backdrop-filter: blur(3.5rem);
   transform: translateX(7%);
   transition: 650ms ease;
+  background-color: rgba(56, 39, 26, 0.98) ;
 }
 .nav-mobile.open {
-  width: 250px;
+  width: 100%;
   transition: 650ms ease-in-out;
 }
 .nav-mobile .nav-links {
@@ -543,11 +557,13 @@ hr {
   margin-bottom: .7rem;
   line-height: 2.5;
   display: block;
+  color: white;
 }
 
 .btn {
   margin-left: 1.6rem;
   margin-top: .8rem;
+  color: white;
 }
   .nav-toggler {
     display: block ;
@@ -628,10 +644,10 @@ hr {
 
   }
   .swiper-slide img {
-    left: 2%;
-    width: 100px;
-    height: 100px;
-    bottom: 6%;
+    left: 4%;
+    width: 90px;
+    height: 90px;
+    bottom: 8%;
   }
   .footer-section {
     flex-direction: column;

@@ -24,6 +24,7 @@ const navToggler = document.querySelector('.nav-toggler')
 const logo = document.querySelector('.logo')
 const navLinks = document.querySelector('.nav-links')
 const learnMore = document.querySelector('.learn-more')
+const learnMoreArrow = document.querySelector('.bi-arrow-right-short')
 
 navToggler.addEventListener('click',() => {
 if(navMenu.style.display != 'block' ) { /*i used != 'block' instead of ==='none' becasue it makes the hamburger button functional on one click*/
@@ -31,7 +32,7 @@ if(navMenu.style.display != 'block' ) { /*i used != 'block' instead of ==='none'
     navToggler.style.zIndex = '1'
     navToggler.classList.add('active')
     navToggler.style.backgroundColor = 'white'
-    learnMore.style.zIndex = '-9999'
+    learnMoreArrow.classList.add('active')
     themeButton.style.display = 'none'
     navToggler.style.backgroundColor = 'inherit'
     logo.style.marginLeft = '.9rem'
@@ -43,6 +44,7 @@ else{
      navToggler.style.color = 'black'
      navToggler.style.backgroundColor = 'white'
      logo.style.marginLeft = '1rem'
+     learnMoreArrow.classList.remove('active')
      themeButton.style.display = 'block'
      bodyWrapper.style.overflow = 'visible'
 }
