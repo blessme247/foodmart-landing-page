@@ -50,14 +50,14 @@ else{
 }
 
 })
-navToggler.addEventListener('click', () => {
+
+navToggler.addEventListener('click', function(el) {
+    const navMenu = document.querySelector('.nav-mobile')
     if(navMenu.classList.contains('open')) {
-        navMenu.classList.remove('open')
-        navMenu.style.transform = 'translateX(100%)'
+        navMenu.classList.remove('open');
     }
     else {
-        navMenu.classList.add('open')
-        navMenu.style.transform = 'translateX(0%)'
+        navMenu.classList.add('open');
     }
 })
 

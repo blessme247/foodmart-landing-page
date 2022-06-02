@@ -528,6 +528,7 @@ hr {
 .header {
   display: block;
   overflow-x: hidden;
+  position: relative;
 }
 .theme {
   transform: translateY(108%);
@@ -538,18 +539,22 @@ hr {
 }
 .nav-mobile {
   position: fixed;
-  right: 0;
+  right: -250px;
   top: 0;
-  width: 0; 
+  width: 250px; 
   height: 100vh;
-  transform: translateX(7%);
-  transition: 650ms ease;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.35s ease;
   background-color: rgba(56, 39, 26, 0.98) ;
 }
 .nav-mobile.open {
-  width: 100%;
-  transition: 650ms ease-in-out;
+  visibility: visible;
+  transition: all 0.35s ease-in-out;
+  opacity: 1;
+  right: 0;
 }
+
 .nav-mobile .nav-links {
  display: block;
  width: 100%;
